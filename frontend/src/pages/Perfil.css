@@ -1,0 +1,159 @@
+.perfil-outer-container {
+    min-height: 80vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #f7fafd;
+}
+
+.perfil-card {
+    background: #fff;
+    border-radius: 18px;
+    box-shadow: 0 4px 24px 0 rgba(0, 0, 0, 0.08);
+    padding: 2.5rem 2rem 2rem 2rem;
+    max-width: 420px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0px 0px 20px 0px;
+}
+
+.perfil-foto-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 1.5rem;
+}
+
+.perfil-foto-grande {
+    position: relative;
+    margin-bottom: 1rem;
+}
+
+.perfil-foto-grande img {
+    width: 110px;
+    height: 110px;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 3px solid #e0e7ef;
+    background: #f0f0f0;
+}
+
+.upload-label {
+    text-align: center;
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    width: 110px;
+    transform: translateX(-50%);
+    background: #007788;
+    color: #fff;
+    font-size: 0.85rem;
+    padding: 4px 14px;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: background 0.2s;
+    border: none;
+    outline: none;
+}
+
+.upload-label:hover {
+    background: #005f66;
+}
+
+.perfil-nombre-rol h2 {
+    font-size: 1.25rem;
+    margin: 0 0 0.2rem 0;
+    font-weight: 700;
+}
+
+.perfil-nombre-rol{
+    text-align: center;
+}
+
+.perfil-rol {
+    font-size: 0.95rem;
+    color: #00bfae;
+    font-weight: 600;
+}
+
+.perfil-info-section {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 1.1rem;
+}
+
+.perfil-info-row {
+    display: flex;
+    flex-direction: column;
+    gap: 0.3rem;
+}
+
+.perfil-info-row label {
+    font-size: 0.97rem;
+    color: #555;
+    font-weight: 500;
+}
+
+.perfil-input {
+    border: 1.5px solid #e0e7ef;
+    border-radius: 8px;
+    padding: 7px 12px;
+    font-size: 1rem;
+    background: #f8fafc;
+    outline: none;
+    transition: border 0.2s;
+}
+
+.perfil-input:focus {
+    border: 1.5px solid #007788;
+}
+
+.perfil-botones {
+    display: flex;
+    gap: 1rem;
+    justify-content: flex-end;
+    margin-top: 1.2rem;
+}
+
+.perfil-botones .editar,
+.perfil-botones .guardar,
+.perfil-botones .limpiar {
+    padding: 6px 18px;
+    border-radius: 8px;
+    border: none;
+    font-weight: 600;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background 0.2s, color 0.2s;
+}
+
+.perfil-botones .editar {
+    background: #007788;
+    color: #fff;
+}
+
+.perfil-botones .editar:hover {
+    background: #005f66;
+}
+
+.perfil-botones .guardar {
+    background: #00bfae;
+    color: #fff;
+}
+
+.perfil-botones .guardar:hover {
+    background: #009e90;
+}
+
+.perfil-botones .limpiar {
+    background: #f0f0f0;
+    color: #007788;
+}
+
+.perfil-botones .limpiar:hover {
+    background: #e0e7ef;
+    color: #005f66;
+}

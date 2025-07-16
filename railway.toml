@@ -1,3 +1,2 @@
 [build]
-buildCommand = "docker build -t myapp ."
-startCommand = "docker run -p 8080:8080 myapp"
+dockerfilePath = "Dockerfile"

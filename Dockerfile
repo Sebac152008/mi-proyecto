@@ -1,15 +1,20 @@
-# Etapa 1: Build de frontend
+# Etapa 1: Build del frontend
 FROM node:20 AS frontend
 
-WORKDIR /app
+WORKDIR /app/frontend
 
-COPY frontend/ ./frontend/
+COPY frontend/package*.json ./
+RUN npm install
 
-RUN cd frontend && npm install && npm run build
+COPY frontend/ ./
+RUN npm run build
 
 
 # Etapa 2: Backend + archivos estáticos
 FROM python:3.11-slim
+
+# Evita problemas con dependencias del sistema
+RUN apt-get update && apt-get install -y build-essential && rm -rf /var/lib/apt/lists/*
 
 WORKDIR /app
 
@@ -20,10 +25,11 @@ RUN pip install --no-cache-dir -r requirements.txt
 # Copiar código backend
 COPY backend/ ./
 
-# Copiar build de frontend desde la etapa anterior
+# Copiar build de frontend (estáticos) a /app/static/
 COPY --from=frontend /app/frontend/build ./static/
 
-# Expone el puerto (usado por Flask o similar)
+# Exponer el puerto
 EXPOSE 8000
 
+# Comando de arranque
 CMD ["python", "app.py"]

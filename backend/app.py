@@ -8,8 +8,26 @@ from db_connection import get_connection  # 👈 Importas la conexión de la bas
 
 load_dotenv()
 
-app = Flask(__name__)
+frontend_build_dir = os.path.join(os.path.dirname(os.path.abspath(__file__)), '../frontend/build')
+
+# Servir archivos estáticos (JS, CSS, imágenes)
+app = Flask(__name__, static_folder=frontend_build_dir, static_url_path='/')
 CORS(app)
+
+# Ruta principal para servir index.html
+@app.route('/')
+def serve_frontend():
+    return send_from_directory(frontend_build_dir, 'index.html')
+
+# Ruteo para cualquier otro path que no sea API o uploads (React Router funciona)
+@app.errorhandler(404)
+def not_found(e):
+    return send_from_directory(frontend_build_dir, 'index.html')
+
+if __name__ == '__main__':
+    port = int(os.environ.get('PORT', 5000))
+    app.run(host='0.0.0.0', port=port, debug=False)
+
 
 SECRET_KEY = os.environ.get('SECRET_KEY')
 if not SECRET_KEY:

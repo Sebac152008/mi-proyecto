@@ -8,7 +8,7 @@ from db_connection import get_connection  # 👈 Importas la conexión de la bas
 
 load_dotenv()
 
-frontend_build_dir = os.path.join(os.path.dirname(os.path.abspath(__file__)), '../frontend/build')
+frontend_build_dir = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'static')
 
 # Servir archivos estáticos (JS, CSS, imágenes)
 app = Flask(__name__, static_folder=frontend_build_dir, static_url_path='/')
